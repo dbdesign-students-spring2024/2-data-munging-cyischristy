@@ -21,7 +21,7 @@ def calculate_decadal_average(input_file: str) -> None:
             temps = annual_temp[i : i + 10]
             print(
                 f"Average temperature for {1880+i}-{1890+i}: "
-                f"{sum(map(float, temps))/len(temps):.1f}"
+                f"{sum(map(float, temps))/len(temps):.2f}"
             )
 
 
