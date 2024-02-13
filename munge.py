@@ -40,6 +40,5 @@ def munge_data(raw_data: str, output_file: str) -> None:
         for line in clean_data:
             file.write(",".join(line) + "\n")
 
-
 if __name__ == "__main__":
     munge_data("data/GLB.Ts+dSST.txt", "data/clean_data.csv")
