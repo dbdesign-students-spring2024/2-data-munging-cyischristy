@@ -1,6 +1,7 @@
 """A Python script to clean and convert the data to a csv file."""
 
 import re
+import os
 
 # Define the pattern for the title and data
 PATTERN_TITLE = r"^([A-Za-z-]+\s+){19}[A-Z+a-z+-]+\n$"
@@ -12,10 +13,11 @@ def celcius_to_fahrenheit(celcius: str) -> str:
     return f"{float(celcius) / 100 * 9 / 5:.1f}"
 
 
-def munge_data(input_file: str, output_file: str) -> None:
+def munge_data(raw_data: str, output_file: str) -> None:
     """Clean the data and write to a csv file"""
     clean_data = []
-    with open(input_file, "r", encoding="utf-8") as file:
+    raw_data = os.path.join("data", "GLB.Ts+dSST.txt")
+    with open(raw_data, "r", encoding="utf-8") as file:
         is_title = True
         # Read the file line by line
         for line in file:
@@ -40,4 +42,4 @@ def munge_data(input_file: str, output_file: str) -> None:
 
 
 if __name__ == "__main__":
-    munge_data("./data.txt", "./clean_data.csv")
+    munge_data("data/GLB.Ts+dSST.txt", "data/clean_data.csv")
